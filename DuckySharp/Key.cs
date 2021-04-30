@@ -173,7 +173,6 @@ namespace DuckySharp {
         //
         public static Key NumEnter = new Key(7, 57, VolumeUp.X, Row4 + 0.5);
 
-
         public static Key[] All = {
             Escape, Tilde, Tab, CapsLock, LeftShift, LeftControl,
             One, Q, A, LeftWindows,
@@ -198,6 +197,10 @@ namespace DuckySharp {
             VolumeDown, NumAsterisk, NumNine, NumSix, NumThree, NumPeriod,
             VolumeUp, NumMinus, NumPlus, NumEnter
         };
+
+        public static double KeyboardWidth    = VolumeUp.X + 0.5;
+        public static double KeyboardWidthTKL = PauseBreak.X + 0.5;
+        public static double KeyboardHeight   = Row5 + 0.5;
 
     }
 
