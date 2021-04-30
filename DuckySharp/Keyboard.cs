@@ -97,6 +97,12 @@ namespace DuckySharp {
             keyColorBuffer[key] = color;
         }
 
+        public Color GetKeyColor(Key key) {
+            if (!keyColorBuffer.ContainsKey(key)) throw new ArgumentException("Invalid key. Must be one defined in the Keys class.");
+
+            return keyColorBuffer[key];
+        }
+
         public void Update() {
             if (!initialized) throw new WrongDeviceStateException(expected: true);
 
