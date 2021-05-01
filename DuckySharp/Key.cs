@@ -173,6 +173,9 @@ namespace DuckySharp {
         //
         public static Key NumEnter = new Key(7, 57, VolumeUp.X, Row4 + 0.5);
 
+        /// <summary>
+        /// A list of all registered keys.
+        /// </summary>
         public static Key[] All = {
             Escape, Tilde, Tab, CapsLock, LeftShift, LeftControl,
             One, Q, A, LeftWindows,
@@ -198,20 +201,31 @@ namespace DuckySharp {
             VolumeUp, NumMinus, NumPlus, NumEnter
         };
 
+        /// <summary>
+        /// The width of the keyboard.
+        /// </summary>
         public static double KeyboardWidth    = VolumeUp.X + 0.5;
+
+        /// <summary>
+        /// The width of the keyboard if it is TKL.
+        /// </summary>
         public static double KeyboardWidthTKL = PauseBreak.X + 0.5;
+
+        /// <summary>
+        /// The height of the keyboard.
+        /// </summary>
         public static double KeyboardHeight   = Row5 + 0.5;
 
     }
 
     public class Key {
         /// <summary>
-        /// The X coordinate of the key on the keyboard. Coordinate (0, 0) is the escape key.
+        /// The X coordinate of the key on the keyboard. Coordinate (0, 0) is the top left of the escape key.
         /// </summary>
         public double X;
 
         /// <summary>
-        /// The Y coordinate of the key on the keyboard. Coordinate (0, 0) is the escape key.
+        /// The Y coordinate of the key on the keyboard. Coordinate (0, 0) is the top left of the escape key.
         /// </summary>
         public double Y;
 
@@ -224,7 +238,14 @@ namespace DuckySharp {
         /// The offset in this key's packet that its color information will be encoded.
         /// </summary>
         public int OffsetNum;
-
+        
+        /// <summary>
+        /// Instantiate a key from the packet it corresponds to and its offset in the packet.
+        /// </summary>
+        /// <param name="packet">The packet number.</param>
+        /// <param name="offset">The offset in the packet.</param>
+        /// <param name="x">X position on the keyboard.</param>
+        /// <param name="y">Y position on the keyboard.</param>
         public Key(int packet, int offset, double x, double y) {
             PacketNum = packet;
             OffsetNum = offset;

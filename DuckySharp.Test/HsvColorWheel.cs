@@ -9,13 +9,12 @@ namespace DuckySharp.Test {
             Keyboard keyboard = new Keyboard();
             keyboard.Initialize();
 
-            // center coordinates for wheel
-            double cx = 7;
-            double cy = 3;
-
             DateTime start = DateTime.Now;
             while (true) {
                 double t = (DateTime.Now - start).TotalSeconds;
+
+                double cx = 10 + Math.Sin(t * 1.2) * 5;
+                double cy = 3 + Math.Cos(t * 1.2) * 1.5;
 
                 foreach (Key key in Keys.All) {
                     double angle = Math.Atan2(key.Y - cy, key.X - cx) * 180 / Math.PI;
