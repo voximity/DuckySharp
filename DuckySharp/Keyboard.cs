@@ -78,7 +78,7 @@ namespace DuckySharp {
             // find related devices
             HidDevice[] devices = HidDevices.Enumerate(Constants.VendorID, productId).Where((device) => device.IsConnected).ToArray();
 
-            if (devices.Length < 0) {
+            if (devices.Length == 0) {
                 throw new DeviceNotFoundException();
             }
 
