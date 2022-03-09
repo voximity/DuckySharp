@@ -74,11 +74,11 @@ namespace DuckySharp {
         /// <summary>
         /// Instantiate a new Keyboard. It will search your USB HID devices.
         /// </summary>
-        public Keyboard() {
+        public Keyboard(int productId = Constants.ProductID) {
             // find related devices
-            HidDevice[] devices = HidDevices.Enumerate(Constants.VendorID, Constants.ProductID).Where((device) => device.IsConnected).ToArray();
+            HidDevice[] devices = HidDevices.Enumerate(Constants.VendorID, productId).Where((device) => device.IsConnected).ToArray();
 
-            if (devices.Length < 0) {
+            if (devices.Length == 0) {
                 throw new DeviceNotFoundException();
             }
 
